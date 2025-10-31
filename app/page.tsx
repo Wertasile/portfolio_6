@@ -1,65 +1,68 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import { useEffect, useState } from "react";
+import LoadingBar from "./components/LoadingBar";
+import LeftStripes from "./components/LeftStripes";
+import FirstCard from "./grid/firstCard";
+import SecondCard from "./grid/secondCard";
+import ThirdCard from "./grid/thirdCard";
+import FourthCard from "./grid/fourthCard";
+import RightIcons from "./components/RightIcons";
+
+export default function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Automatically stop loading after e.g. 2.5 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2500);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="bg-[#0c0e1a] flex flex-col gap-8 min-h-screen p-4 relative overflow-hidden">
+      {/* LOADING SCREEN */}
+      {isLoading && (
+        <div className="absolute inset-0 z-50 flex items-center justify-center bg-[#0c0e1a]">
+          <LoadingBar isLoading={isLoading} setIsLoading={setIsLoading} />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      )}
+
+      {/* MAIN CONTENT */}
+      {!isLoading && (
+        <>
+          <LeftStripes />
+          <RightIcons />
+          <header className="flex items-center justify-center z-10 animate-fadeIn font-semibold">
+            <div className="w-[1000px] bg-[#ECE2D0] flex text-[20px] items-center justify-between rounded-[24px] text-black py-[12px] px-[24px] shadow-md">
+              <div>
+                <a href="#">Ahmed Arfan</a>
+              </div>
+              <div className="flex items-center gap-4">
+                <a href="#" className="hover:text-gray-700 transition-colors">
+                  About
+                </a>
+                <a href="#" className="hover:text-gray-700 transition-colors">
+                  Work
+                </a>
+                <a href="#" className="hover:text-gray-700 transition-colors">
+                  Contact
+                </a>
+              </div>
+            </div>
+          </header>
+
+          <main className="flex items-center justify-center z-10 animate-fadeIn">
+            <div className="w-[1000px] content-tiles">
+              <FirstCard />
+              <SecondCard />
+              <ThirdCard />
+              <FourthCard />
+            </div>
+          </main>
+        </>
+      )}
     </div>
   );
 }
