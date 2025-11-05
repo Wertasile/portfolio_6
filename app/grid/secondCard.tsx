@@ -264,7 +264,7 @@ export default function SecondCard() {
 
   return (
       <div 
-        className="relative w-[306px] h-[306px] touch-none select-none cursor-grab active:cursor-grabbing col-span-2 mx-[24] my-[20]"
+        className="relative self-center w-[306px] h-[306px] touch-none select-none cursor-grab active:cursor-grabbing col-span-2 mx-[24] my-[20]"
         onMouseEnter={() => !isDraggingRef.current && setIsPaused(true)}
         onMouseLeave={handleMouseLeave}
         onMouseDown={handleMouseDown}

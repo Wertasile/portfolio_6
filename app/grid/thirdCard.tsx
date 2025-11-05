@@ -36,7 +36,7 @@ export const Card = ({role, location, company, time, tools, desc}: CardProps) =>
   return(
   <div className='flex flex-col h-full gap-2 justify-around'>
     <div className='flex justify-between items-center'>
-      <h2>{role}</h2>
+      <h2>{role.toUpperCase()}</h2>
       <p>{location}</p>
     </div>
     <div className='flex gap-2 items-center'>
@@ -118,7 +118,7 @@ const ThirdCard = () => {
 
   return (
     <div
-      className='col-span-2 bg-[#5F9FFF] flex rounded-[24px] justify-between items-center p-[8px]'
+      className='col-span-2 bg-[#04071D] border-[#353535] border-[0.5px] flex rounded-[24px] justify-between items-center p-[8px] w-[100%]'
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
@@ -151,7 +151,7 @@ const ThirdCard = () => {
             desc="PROVIDED ONLINE AND IN-PERSON HARWARE, SOFTWARE AND NETWORKING SUPPORT. DELEGATED USER ACCOUNTS AND POLICIES THROUGH AZURE AD."
           />
 
-          <Card role='Comp Eng Student' location='remote' time='JUL `25 - AUG `25' tools='HARDWARE | NETWORKING | APP DEV ' company='UNIVERSITY OF GREENWICH'
+          <Card role='Comp Eng Student' location='LONDON' time='SEP `21 - JUL `24' tools='HARDWARE | NETWORKING | APP DEV ' company='UNIVERSITY OF GREENWICH'
             desc="LEARNED FOUNDATIONAL BASICS IN SOFTWARE DEVELOPMENT, WORKING WITH SENSORS AND HARDWARE AS WELL AS SENSORS AND NETWORKS."
           />
         </div>

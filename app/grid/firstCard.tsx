@@ -5,7 +5,7 @@ import { gsap } from "gsap";
 import svgPaths from "../imports/svg-pztb8xcdkj";
 
 function Frame() {
-  return <div className="absolute backdrop-blur-[80px] backdrop-filter bg-[rgba(255,255,255,0.02)] h-[347px] left-0 rounded-[24px] top-0 w-[100%]" data-name="FRAME" />;
+  return <div className="absolute backdrop-blur-[80px] backdrop-filter bg-[rgba(0,0,0,0.3)] h-[347px] left-0 rounded-[24px] top-0 w-[100%]" data-name="FRAME" />;
 }
 
 function Typescript() {
@@ -325,7 +325,7 @@ export default function Card() {
   }, []);
 
   return (
-    <div className="relative h-[347px] max-w-[924px] col-span-3" data-name="CARD 1">
+    <div className="relative h-[347px] rounded-3xl border-[#353535] border-[0.5px] max-w-[924px] col-span-3" data-name="CARD 1">
       <div className="absolute bg-[#2f3241] h-[347px] left-0 overflow-clip rounded-[24px] top-0 w-[100%]" data-name="Animated Background">
         {/* Vector 2 - Cyan */}
         <div ref={vector2Ref} className="absolute h-[250.745px] left-[223px] top-0 w-[550px]">
@@ -367,14 +367,25 @@ export default function Card() {
         
       </div>
 
-      <div className="absolute top-0 left-0 w-[100%] p-4">
-        <div className="flex flex-col sm:flex-row gap-2 justify-between w-[100%]" data-name="AL - TEXT + ICON">
+      <div className="absolute top-0 left-0 w-[100%] h-[100%] p-[8px]">
+        <div className="flex h-full flex-col gap-2 justify-between w-[100%]" data-name="AL - TEXT + ICON">
           <div>
             <h1 className="z-2">CREATIVE DEVELOPER AND DESIGNER</h1>
             <div className="text-[16px]">*SITE STILL UNDER CONSTRUCTION</div>
           </div>
           
-          <IconFramEs />
+          {/* <IconFramEs /> */}
+          <div className="hidden sm:flex flex-row flex-wrap gap-2">
+            <div className='bg-[#2F3241] h-fit p-2 min-w-[80px] rounded-3xl text-center border-[#353535] border-[0.5px]'>FIGMA</div>
+            <div className='bg-[#2F3241] h-fit p-2 min-w-[80px] rounded-3xl text-center border-[#353535] border-[0.5px]'>WEBFLOW</div>
+            <div className='bg-[#2F3241] h-fit p-2 min-w-[80px] rounded-3xl text-center border-[#353535] border-[0.5px]'>REACT</div>
+            <div className='bg-[#2F3241] h-fit p-2 min-w-[80px] rounded-3xl text-center border-[#353535] border-[0.5px]'>NEXT.JS</div>
+            <div className='bg-[#2F3241] h-fit p-2 min-w-[80px] rounded-3xl text-center border-[#353535] border-[0.5px]'>MONGODB</div>
+            <div className='bg-[#2F3241] h-fit p-2 min-w-[80px] rounded-3xl text-center border-[#353535] border-[0.5px]'>NODE.JS</div>
+            <div className='bg-[#2F3241] h-fit p-2 min-w-[80px] rounded-3xl text-center border-[#353535] border-[0.5px]'>.NET</div>
+            <div className='bg-[#2F3241] h-fit p-2 min-w-[80px] rounded-3xl text-center border-[#353535] border-[0.5px]'>AWS</div>
+            <div className='bg-[#2F3241] h-fit p-2 min-w-[80px] rounded-3xl text-center border-[#353535] border-[0.5px]'>GSAP</div>
+          </div>
         </div>
       </div>
 

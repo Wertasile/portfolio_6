@@ -40,14 +40,14 @@ function WatchfaceBottomComponentSet({ progress }: WatchfaceBottomComponentSetPr
           d={arcPath}
           fill="none"
           stroke="rgba(255, 234, 0, 0.2)"
-          strokeWidth="6"
+          strokeWidth="10"
           strokeLinecap="round"
         />
         {/* Progress arc */}
         <path
           d={arcPath}
           fill="none"
-          stroke="#FFEA00"
+          stroke="#ECE2D0"
           strokeWidth="6"
           strokeLinecap="round"
           strokeDasharray={arcLength}
@@ -81,8 +81,8 @@ function WatchfaceTop({ activeIndex, onEllipseClick }: WatchfaceTopProps) {
               <path
                 key={idx}
                 d={ellipse.d}
-                fill={activeIndex === ellipse.index ? "var(--fill-0, #FFEA00)" : "transparent"}
-                stroke="var(--stroke-0, #FFEA00)"
+                fill={activeIndex === ellipse.index ? "var(--fill-0, #ECE2D0)" : "transparent"}
+                stroke="var(--stroke-0, #4d4709ff)"
                 strokeWidth={activeIndex === ellipse.index ? "2" : "1"}
                 onClick={() => onEllipseClick(ellipse.index)}
                 style={{ cursor: 'pointer', transition: 'all 0.3s ease' }}
@@ -105,9 +105,9 @@ interface WatchfaceComponentProps {
 export default function WatchfaceComponent({ activeIndex, onEllipseClick, progress }: WatchfaceComponentProps) {
   return (
       <div className="size-[306px] top-0" data-name="Watchface">
-        <div className="absolute inset-[-3.268%]" style={{ "--fill-0": "rgba(17, 17, 17, 1)", "--stroke-0": "rgba(255, 234, 0, 1)" } as React.CSSProperties}>
+        <div className="absolute inset-[-3.268%]" style={{ "--fill-0": "#04071D", "--stroke-0": "#ECE2D0" } as React.CSSProperties}>
           <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 326 326">
-            <circle cx="163" cy="163" fill="var(--fill-0, #111111)" id="Watchface" r="158" stroke="var(--stroke-0, #FFEA00)" strokeWidth="10" />
+            <circle cx="163" cy="163" fill="var(--fill-0, #04071D)" id="Watchface" r="158" stroke="var(--stroke-0, #ECE2D0)" strokeWidth="10" />
           </svg>
         </div>
       <WatchfaceBottomComponentSet progress={progress} />

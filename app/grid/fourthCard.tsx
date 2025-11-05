@@ -83,7 +83,7 @@ const FourthCard = () => {
   }, []);
 
   return (
-    <div className="col-span-3 rounded-[24px] flex flex-col items-center bg-[#FF0000] p-4">
+    <div className="col-span-3 rounded-[24px] flex flex-col items-center bg-[#04071D] border-[#353535] border-[0.5px] p-[8px]">
       {/* Carousel Container */}
       <div
         ref={containerRef}
