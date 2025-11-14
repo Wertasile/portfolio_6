@@ -9,8 +9,32 @@ import ThirdCard from "./grid/thirdCard";
 import FourthCard from "./grid/fourthCard";
 import RightIcons from "./components/RightIcons";
 
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
+import { Flip } from "gsap/Flip";
+
+gsap.registerPlugin(Flip)
+
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
+
+  const { contextSafe } = useGSAP()
+
+  const cardClickHandler = contextSafe( (e : React.MouseEvent<HTMLDivElement>) => {
+    const target = e.currentTarget; // ✅ safer than e.target
+    const state = Flip.getState(target)
+    target.classList.toggle('full-screen');
+    Flip.from(state, {
+      absolute: true,
+      ease: "power1.inOut",
+       
+    });
+  })
+
+  useGSAP(() => {
+
+    
+  })
 
   // Automatically stop loading after e.g. 2.5 seconds
   useEffect(() => {
@@ -40,7 +64,7 @@ export default function App() {
                 <a href="#" className="font-semibold">Ahmed Arfan</a>
               </div>
               <nav className="flex items-center gap-4 ">
-                <a href="#" className="hover:text-gray-700 transition-colors">
+                {/* <a href="#" className="hover:text-gray-700 transition-colors">
                   About
                 </a>
                 <a href="#" className="hover:text-gray-700 transition-colors">
@@ -48,7 +72,7 @@ export default function App() {
                 </a>
                 <a href="#" className="hover:text-gray-700 transition-colors">
                   Contact
-                </a>
+                </a> */}
                 <a href="/CV.pdf" target="_blank" className="primary-btn">
                   DOWNLOAD CV
                 </a>
@@ -57,10 +81,10 @@ export default function App() {
           </header>
 
           <main className="flex items-center justify-center z-10 animate-fadeIn">
-            <div className="max-w-[1000px] flex flex-col gap-2 w-full sm:grid grid-cols-[repeat(auto-fit,minmax(166px,1fr))]">
-              <FirstCard />
-              <SecondCard />
-              <ThirdCard />
+            <div className="cards-container max-w-[1000px] flex flex-col gap-2 w-full sm:grid grid-cols-[repeat(auto-fit,minmax(166px,1fr))]"> {/*  gallery */}
+              <FirstCard className={''}/>
+              <SecondCard className={""}/>
+              <ThirdCard className={"card"} onClick={cardClickHandler}/> {/* item */}
               <FourthCard />
             </div>
           </main>

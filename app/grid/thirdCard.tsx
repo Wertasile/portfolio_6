@@ -59,7 +59,11 @@ export const Card = ({role, location, company, time, tools, desc}: CardProps) =>
   )
 }
 
-const ThirdCard = () => {
+type ThirdCardProps = {
+  className: string,
+  onClick : (e: any) => void
+}
+const ThirdCard = ({className = '', onClick} : ThirdCardProps) => {
   const [highlights, setHighlights] = useState<"Summary" | "Fadah" | "IT" | "Comp">("Summary")
   const [paused, setPaused] = useState(false)
   const [slideHeight, setSlideHeight] = useState(0)
@@ -118,12 +122,14 @@ const ThirdCard = () => {
 
   return (
     <div
-      className='col-span-2 bg-[#04071D] border-[#353535] border-[0.5px] flex rounded-[24px] justify-between items-center p-[8px] w-[100%]'
+      className={`col-span-2 bg-[#04071D] border-[#353535] border-[0.5px] flex rounded-[24px] justify-between items-center p-[8px] w-[100%] ${className}`}
+      
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
       <div
         ref={containerRef}
+        // onClick={onClick}
         className='h-[400px] flex justify-between gap-2 w-full overflow-hidden relative'
       >
         {/* 🧩 Carousel Container */}
@@ -136,7 +142,7 @@ const ThirdCard = () => {
           <div className='flex flex-col h-full gap-2'>
             <h1>CAREER</h1>
             <div className='flex flex-col gap-2 '>
-              <Summary role='Freelance Developer' location='Freelance' time='JUN `25 - PRESENT'/>
+              <Summary role='SWE Intern' location='Picky Eater' time='NOV `25 - PRESENT'/>
               <Summary role='Web Developer' location='Fadah Al Doha' time='JUL `25 - AUG `25'/>
               <Summary role='IT Support Staff' location='University of Greenwich' time='AUG `24 - FEB `25'/>
               <Summary role='BEng Comp Eng Student' location='University of Greenwich' time='SEP `21 - JUL `24'/>
@@ -144,7 +150,7 @@ const ThirdCard = () => {
           </div>
 
           <Card role='Web Developer' location='REMOTE' time='JUL `25 - AUG `25' tools='NEXTJS | REACT | GSAP | RESEND' company='FADAH AL DOHA TRADING AND CONTRACTING'
-            desc="DELIVERED A NEW WEBSITE FOR FADAH AL DOHA, WHO WANTED AN INCREASE IN THEIR ONLINE PRESENCE, AS WELL AS A WAY TO INCREASE THEIR LEADS VIA ONLINE CONTACT."
+            desc="DELIVERED A WEBSITE FOR CLIENTS, WHO WANTED AN INCREASE IN THEIR ONLINE PRESENCE, AND A WAY TO INCREASE THEIR LEADS VIA ONLINE CONTACT."
           />
 
           <Card role='IT Support' location='LONDON' time='AUG `24 - FEB `25' tools='ITSM | AZURE | HALO | MOODLE LMS' company='UNIVERSITY OF GREENWICH'

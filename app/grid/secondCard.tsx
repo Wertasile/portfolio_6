@@ -16,7 +16,11 @@ const slideData: SlideContent[] = [
   { number: '1', text: 'ONGOING PROJECTS - DEVRIM' },
 ];
 
-export default function SecondCard() {
+type CardProps = {
+  className: string
+}
+
+export default function SecondCard({className = '',} : CardProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [nextIndex, setNextIndex] = useState(0);
   const [direction, setDirection] = useState(1);
