@@ -13,7 +13,7 @@ const slideData: SlideContent[] = [
   { number: '1', text: 'PROJECT SUCCESSFULLY DELIVERED TO CLIENT' },
   { number: '4', text: 'PROJECTS COMPLETED THIS YEAR' },
   { number: '2', text: 'MERIT AWARDS FROM IET' },
-  { number: '1', text: 'ONGOING PROJECTS - DEVRIM' },
+  { number: '2', text: 'ONGOING PROJECTS' },
 ];
 
 type CardProps = {
